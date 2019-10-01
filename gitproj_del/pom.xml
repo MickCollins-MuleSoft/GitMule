@@ -33,7 +33,7 @@
 			            <password>${mule.password}</password>
 			            <applicationName>gitproj-del-mc</applicationName>
 			            <environment>Sandbox</environment>
-			            <workerType>SMALL</workerType>
+			            
 			            <region>us-east-2</region>
 			            <properties>
 			                <key>value</key>
