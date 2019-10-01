@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="gitproj_del-test-suite.xml" />
+	<munit:test name="gitproj_del-test-suite-gitproj_delFlowTest" description="Test" doc:id="f7265ab1-9a5c-493d-8621-0d7f6c8deccc" >
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to gitproj_delFlow" doc:id="76c9b653-1ee8-4392-8ae4-3f4d0ab3883f" name="gitproj_delFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="3435fd63-a127-485c-a9f1-495f22946a7a" expression="#[vars.helloString]" is="#[MunitTools::nullValue()]" message="Asserted helloString"/>
+		</munit:validation>
+	</munit:test>
+
+</mule>
