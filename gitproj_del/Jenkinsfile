@@ -18,9 +18,9 @@ pipeline {
       steps {
               sh '/usr/local/bin/mvn -f pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW} -Dmule.version=4.1.4 -Dmule.URL=https://anypoint.mulesoft.com -DmuleDeploy'
       }
-      #steps {
-      #  sh 'mvn deploy -P cloudhub -Dmule.version=4.1.4 -Danypoint.username=${DEPLOY_CREDENTIALS_USR} -Danypoint.password=${DEPLOY_CREDENTIALS_PSW}' 
-      #}
+      //steps {
+      //  sh 'mvn deploy -P cloudhub -Dmule.version=4.1.4 -Danypoint.username=${DEPLOY_CREDENTIALS_USR} -Danypoint.password=${DEPLOY_CREDENTIALS_PSW}' 
+      //}
     }
   }
 }
