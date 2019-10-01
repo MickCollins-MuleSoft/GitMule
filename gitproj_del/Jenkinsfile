@@ -13,7 +13,9 @@ pipeline {
         sh '/usr/local/bin/mvn -f gitproj_del/pom.xml clean test'
       }
     }
-    
+    //---------------------------------------------------
+    //Next stage will deploy to Cloudhub
+    //---------------------------------------------------
     stage('Deploy CloudHub') { 
       steps {
               sh '/usr/local/bin/mvn -e ⁨gitproj_del⁩/pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW} -Dmule.version=4.1.4 -Dmule.URL=https://anypoint.mulesoft.com -DmuleDeploy'
