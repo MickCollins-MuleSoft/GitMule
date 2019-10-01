@@ -10,7 +10,7 @@ pipeline {
   stages {
     stage('Unit Test') { 
       steps {
-        sh '/usr/local/bin/mvn clean test'
+        sh '/usr/local/bin/mvn -f gitproj_del/pom.xml clean test'
       }
     }
     
