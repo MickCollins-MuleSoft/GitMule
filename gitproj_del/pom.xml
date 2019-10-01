@@ -26,6 +26,20 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
+				  <cloudHubDeployment>
+			            <uri>${mule.URL}</uri>
+			            <muleVersion>${mule.version}</muleVersion>
+			            <username>${mule.username}</username>
+			            <password>${mule.password}</password>
+			            <applicationName>gitproj-del-mc</applicationName>
+			            <environment>Sandbox</environment>
+			            <workerType>SMALL</workerType>
+			            <region>us-east-2</region>
+			            <properties>
+			                <key>value</key>
+			            </properties>
+	        	  </cloudHubDeployment>
+ 				  <classifier>mule-application</classifier>
 				</configuration>
 			</plugin>
 		</plugins>
