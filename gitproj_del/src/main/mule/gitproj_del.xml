@@ -10,7 +10,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
 	</http:listener-config>
 	<flow name="gitproj_delFlow" doc:id="47711bef-60cb-4179-b8f8-b7c362825e2b" >
 		<http:listener doc:name="Listener" doc:id="219937d7-39f9-4721-8718-f9d5675db9f1" config-ref="HTTP_Listener_config" path="/hello"/>
-		<set-variable value="Hello World!!!" doc:name="Set Variable" doc:id="558639c6-5b00-4004-b832-3f7259c29ce3" variableName="helloString"/>
+		<set-variable value="Hello Deloitte!!!" doc:name="Set Variable" doc:id="558639c6-5b00-4004-b832-3f7259c29ce3" variableName="helloString"/>
 		<set-payload value="#[vars.helloString]" doc:name="Set Payload" doc:id="18d2a7ed-86ca-4fa0-a484-a68eb8f0e14e" />
 		<ee:transform doc:name="Transform Message" doc:id="fdf52522-b7ac-43fa-b9dc-f0d1adaf7c17">
 			<ee:message>
