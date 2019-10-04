@@ -13,7 +13,7 @@
 			<flow-ref doc:name="Flow-ref to gitproj_delFlow" doc:id="76c9b653-1ee8-4392-8ae4-3f4d0ab3883f" name="gitproj_delFlow"/>
 		</munit:execution>
 		<munit:validation >
-			<munit-tools:assert-that doc:name="Assert that" doc:id="3435fd63-a127-485c-a9f1-495f22946a7a" expression="#[vars.helloString]" is="#[MunitTools::notNullValue()]" message="Asserted helloString"/>
+			<munit-tools:assert-that doc:name="Assert that" doc:id="3435fd63-a127-485c-a9f1-495f22946a7a" expression="#[vars.helloString]" is="#[MunitTools::nullValue()]" message="Asserted helloString"/>
 		</munit:validation>
 	</munit:test>
 
