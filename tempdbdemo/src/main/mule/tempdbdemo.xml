@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:db="http://www.mulesoft.org/schema/mule/db" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/current/mule-db.xsd">
+	<db:config name="Database_Config" doc:name="Database Config" doc:id="9e34490e-33e6-4cd3-962b-8cc565a82b6b" >
+		<db:my-sql-connection host="services.mythicalcorp.com" port="3306" user="product" password="Mule1379" database="products_test" />
+	</db:config>
+	<flow name="tempdbdemoFlow" doc:id="fa7296a0-3309-46db-a066-493d7c363161" >
+		<scheduler doc:name="Scheduler" doc:id="bfeb5ac7-6583-490f-8fad-b21de3ef7109" >
+			<scheduling-strategy >
+				<fixed-frequency />
+			</scheduling-strategy>
+		</scheduler>
+		<db:select doc:name="Select" doc:id="c445497a-f083-4a62-8a68-d8f6c6f31537" config-ref="Database_Config">
+			<db:sql >SELECT  p.id, p.name, p.description, p.product_number, p.manufactured, p.colors, p.categories, p.stock, p.safety_stock_level, p.standard_cost, p.list_price, p.size, p.size_unit_measure_code, p.weight, p.weight_unit_measure_code, p.days_to_manufacture, p.images,  p.modified_date, p.created_date
+FROM product p
+LIMIT 10</db:sql>
+		</db:select>
+	</flow>
+</mule>
