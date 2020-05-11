@@ -1,6 +1,10 @@
 pipeline {
   agent any
 
+  environment {  
+    ANYPOINT_CREDENTIALS = credentials('Anypoint') 
+  }
+  
   tools{
       maven 'Maven_Local3.6.2'
     }
@@ -14,10 +18,6 @@ pipeline {
     //Next stage will deploy to Cloudhub
     //---------------------------------------------------
     stage('Deploy CloudHub') { 
-      
-      environment {  
-        ANYPOINT_CREDENTIALS = credentials('Anypoint') 
-      }
       environment {  
         MYSQL_CREDENTIALS = credentials('AWS_RDS_PERS') 
       }
