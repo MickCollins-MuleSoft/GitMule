@@ -22,6 +22,10 @@ pipeline {
         MYSQL_CREDENTIALS = credentials('AWS_RDS_PERS') 
       }
       steps {
+        sh 'echo "Cloudhub user is $ANYPOINT_CREDENTIALS_USR"'
+        sh 'echo "Cloudhub password is $ANYPOINT_CREDENTIALS_PSW"'
+        sh 'echo "MySQL user is $MYSQL_CREDENTIALS_USR"'
+        sh 'echo "MySQL password is $MYSQL_CREDENTIALS_PSW"'
               sh '/usr/local/bin/mvn -f mysql-people-api/pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW}  -DmuleDeploy -Dmysql.host=mysqlaws1.cafcf8elhrnd.us-east-1.rds.amazonaws.com -Dmysql.port=3306 -Dmysql.user=${MYSQL_CREDENTIALS_USR} -Dmysql.password=${MYSQL_CREDENTIALS_PSW} -Dmysql.db=MySQLAWS1?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC'
       }
       //comment lines begin with double slash, keep this as a reminder
