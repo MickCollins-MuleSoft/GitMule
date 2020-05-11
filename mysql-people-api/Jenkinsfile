@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   environment {
-    ANYPOINT_CREDENTIALS = credentials('Anypoint')
+    ANYPOINT_CREDENTIALS = credentials('Anypoint'),
     MySQL_Credentials = credentials('AWS_RDS_PERS')
   }
   tools{
