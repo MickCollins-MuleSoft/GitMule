@@ -1,0 +1,27 @@
+pipeline {
+  agent any
+
+  environment {
+    ANYPOINT_CREDENTIALS = credentials('Anypoint')
+    MySQL_Credentials = credentials('AWS_RDS_PERS')
+  }
+  tools{
+      maven 'Maven_Local3.6.2'
+    }
+  stages {
+    stage('Unit Test') { 
+      steps {
+        sh '/usr/local/bin/mvn -f mysql-people-api/pom.xml clean test'
+      }
+    }
+    //---------------------------------------------------
+    //Next stage will deploy to Cloudhub
+    //---------------------------------------------------
+    stage('Deploy CloudHub') { 
+      steps {
+              sh '/usr/local/bin/mvn -f mysql-people-api/pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW}  -DmuleDeploy -Dmysql.host=mysqlaws1.cafcf8elhrnd.us-east-1.rds.amazonaws.com -Dmysql.port=3306 -Dmysql.user=${MySQL_Credentials_USR} -Dmysql.password=${MySQL_Credentials_PSW} -Dmysql.db=MySQLAWS1?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC'
+      }
+      //comment lines begin with double slash, keep this as a reminder
+    }
+  }
+}
