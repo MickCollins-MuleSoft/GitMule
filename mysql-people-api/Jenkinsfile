@@ -16,7 +16,7 @@ pipeline {
       environment {  MYSQL_CREDENTIALS = credentials('AWS_RDS_PERS')
       }  
       steps {
-        sh '/usr/local/bin/mvn -f mysql-people-api/pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW} -Dmysql.host=mysqlaws1.cafcf8elhrnd.us-east-1.rds.amazonaws.com -Dmysql.port=3306 -Dmysql.user=${MYSQL_CREDENTIALS_USR} -Dmysql.password=${MYSQL_CREDENTIALS_PSW} -Dmysql.db=MySQLAWS1?zeroDateTimeBehavior=CONVERT_TO_NULL&serverTimezone=UTC -DmuleDeploy'
+        sh '/usr/local/bin/mvn -f mysql-people-api/pom.xml clean package deploy -Dmule.username=${ANYPOINT_CREDENTIALS_USR} -Dmule.password=${ANYPOINT_CREDENTIALS_PSW} -Dmysql.host=mysqlaws1.cafcf8elhrnd.us-east-1.rds.amazonaws.com -Dmysql.port=3306 -Dmysql.user=${MYSQL_CREDENTIALS_USR} -Dmysql.password=${MYSQL_CREDENTIALS_PSW} -Dmysql.db=MySQLAWS1 -DmuleDeploy'
       }
       //comment lines begin with double slash, keep this as a reminder
     }
