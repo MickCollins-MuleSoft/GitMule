@@ -1,10 +1,8 @@
 pipeline {
   agent any
 
-  environment {
-    ANYPOINT_CREDENTIALS = credentials('Anypoint'),
-    MySQL_Credentials = credentials('AWS_RDS_PERS')
-  }
+  environment {  ANYPOINT_CREDENTIALS = credentials('Anypoint') }
+  environment {  MySQL_Credentials = credentials('AWS_RDS_PERS') }
   tools{
       maven 'Maven_Local3.6.2'
     }
